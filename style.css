@@ -1,23 +1,26 @@
 :root{
     --background-color: hsl(0, 0%, 20%);
-    --screen-color: hsl(0, 0%, 50%);
+    --screen-color: hsl(0, 0%, 60%);
     --AC-color: hsl(20, 100%, 83%);
     --clear-color: hsl(0, 100%, 83%);
     --key-color: hsl(0, 0%, 67%);
 }
 
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightpink;
+}
+
 .container{
+    border: 10px solid white;
+    border-radius: 20px;
     padding-top: 5px;
-    /* display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5 , 1fr); */
-    height: 600px;
+    height: auto;
     width: 400px;   
     background-color: var(--background-color) ;
 }
 
 .button-container{
-    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -28,12 +31,17 @@
 }
 
 .screen{
+    font-weight: 600;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    align-items:center ;   
     position: relative;
     height: 55px;
-    /* margin-right: 20px;
-    margin-left: 20px; */
     margin: 30px 20px;
     background-color: var(--screen-color);
+
 }
 
 .keys {
