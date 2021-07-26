@@ -1,0 +1,57 @@
+:root{
+    --background-color: hsl(0, 0%, 20%);
+    --screen-color: hsl(0, 0%, 50%);
+    --AC-color: hsl(20, 100%, 83%);
+    --clear-color: hsl(0, 100%, 83%);
+    --key-color: hsl(0, 0%, 67%);
+}
+
+.container{
+    padding-top: 5px;
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5 , 1fr); */
+    height: 600px;
+    width: 400px;   
+    background-color: var(--background-color) ;
+}
+
+.button-container{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 1em;
+    column-gap: 2em;
+    margin: 30px 20px;
+}
+
+.screen{
+    position: relative;
+    height: 55px;
+    /* margin-right: 20px;
+    margin-left: 20px; */
+    margin: 30px 20px;
+    background-color: var(--screen-color);
+}
+
+.keys {
+    background-color: var(--key-color);
+    height: 50px;
+    width: auto ;
+    border-radius: 10px;
+    border: 3px solid black;
+}
+
+#ac-key{
+    background-color: var(--AC-color);
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#del{
+    background-color: var(--clear-color);
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
