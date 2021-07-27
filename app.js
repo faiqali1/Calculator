@@ -10,7 +10,6 @@ const equals = document.getElementById("=")
 num1 = ""
 operation = ""
 num2 = ""
-localNumberEntered = 0; // to keep track of the numbers entered 
 firstNum = true;
 
 // screen.addEventListener("click" , function(){
@@ -30,7 +29,15 @@ acButton.addEventListener("click" , function(){
     //TODO - add relevant function
 })
 delButton.addEventListener("click" , function(){
-    console.log("tapped!");
+    console.log("del---");
+    if (firstNum) {
+        num1 = num1.slice(0, num1.length - 1)
+        updateScreen(num1)
+    }
+    else{
+        num2 = num2.slice(0, num2.length - 1)
+        updateScreen(num2)
+    }
     //TODO - add relevant function
 })
 decimal.addEventListener("click" , function(){
@@ -68,7 +75,7 @@ for (let index = 0; index < operands.length; index++) {
     })
 }
 
-function changeScreen(params) {
+function updateScreen(params) {
     screen.innerHTML = params
 }
 
@@ -78,14 +85,14 @@ function updateOperand(op) {
 
 function setNum1 (int){
     num1 += int;
-    changeScreen(num1)
+    updateScreen(num1)
     
     console.log("num1: ->" + num1);
 }
 
 function setNum2(int){
     num2 += int;
-    changeScreen(num2)
+    updateScreen(num2)
     console.log("num2: ->" + num2);
 }
 
