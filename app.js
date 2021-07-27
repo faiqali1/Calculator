@@ -7,15 +7,18 @@ const delButton = document.getElementById("del");
 const decimal = document.getElementById(".");
 const equals = document.getElementById("=")
 
-num1 = 0
+num1 = ""
 operation = ""
-num2 = 0
+num2 = ""
 localNumberEntered = 0; // to keep track of the numbers entered 
+firstNum = true;
 
-screen.addEventListener("click" , function(){
-    console.log("tapped!");
-    //TODO - add relevant function
-})
+// screen.addEventListener("click" , function(){
+//     console.log("tapped!");
+//     //TODO - add relevant function
+// })
+
+
 acButton.addEventListener("click" , function(){
     console.log("tapped!");
     //TODO - add relevant function
@@ -36,14 +39,15 @@ function showResult() {
 }
 equals.addEventListener("click", function () {
     screen.innerHTML = compute(operation);
-    console.log( "-->" +add(num1,num2));    
+    console.log( "result -->" +compute(operation));    
 })
 
 for (let index = 0; index < numbers.length; index++) {
      numbers[index].addEventListener("click" , function () {
-         int = parseInt( this.innerHTML);
+        //  int = parseInt( this.innerHTML);
+         int = this.innerHTML;
          console.log( "--->" +this.innerHTML);
-         localNumberEntered == 0 ? setNum1(int) : setNum2(int);  
+         firstNum ? setNum1(int) : setNum2(int);  
      }) 
  }
 // parseInt()
@@ -53,6 +57,7 @@ for (let index = 0; index < operands.length; index++) {
     element.addEventListener('click', function (){
         console.log("operand: " + this.innerHTML );
         updateOperand(this.innerHTML);
+        firstNum = false
         //TODO - add relevant function
     })
 }
@@ -66,21 +71,22 @@ function updateOperand(op) {
 }
 
 function setNum1 (int){
-    num1 = int;
-    changeScreen(int)
-    localNumberEntered++;
-    console.log("num1: ->" + int);
+    num1 += int;
+    changeScreen(num1)
+    
+    console.log("num1: ->" + num1);
 }
 
 function setNum2(int){
-    num2 = int;
-    changeScreen(int)
-    console.log("num2: ->" + int);
+    num2 += int;
+    changeScreen(num2)
+    console.log("num2: ->" + num2);
 }
 
-function addNum(int){
-    localNumberEntered == 0 ? setNum1(int) : setNum2(int);  
-}
+// function addNum(int){
+//     // localNumberEntered == 0 ? setNum1(int) : setNum2(int);  
+//     firstNum ? setNum1(int) : setNum2(int);  
+// }
 
 
 function compute(op) {
@@ -103,7 +109,9 @@ function compute(op) {
 }
 
 function add(num1 , num2) {
-    return num1 + num2;
+    let v1 = parseInt(num1)
+    let v2 = parseInt(num2)
+    return v1 + v2;
 }
 
 function sub(num1 , num2) {
