@@ -20,7 +20,13 @@ firstNum = true;
 
 
 acButton.addEventListener("click" , function(){
-    console.log("tapped!");
+    console.log("AC!!!");
+    num1 = ""
+    operation = ""
+    num2 = "" 
+    firstNum = true;
+    screen.innerHTML = ""
+        
     //TODO - add relevant function
 })
 delButton.addEventListener("click" , function(){
