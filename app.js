@@ -35,7 +35,7 @@ function showResult() {
     console.log( "-->" +add(num1,num2));
 }
 equals.addEventListener("click", function () {
-    screen.innerHTML = add(num1,num2)
+    screen.innerHTML = compute(operation);
     console.log( "-->" +add(num1,num2));    
 })
 
@@ -80,6 +80,26 @@ function setNum2(int){
 
 function addNum(int){
     localNumberEntered == 0 ? setNum1(int) : setNum2(int);  
+}
+
+
+function compute(op) {
+
+    switch (op) {
+        case "+":
+            return add(num1, num2)
+        case "-":
+            return sub(num1,num2)
+
+        case "*":
+            return multiply(num1,num2)
+
+        case "/":
+            return divide(num1,num2)
+        default:
+            return "error....";
+    }
+    
 }
 
 function add(num1 , num2) {
