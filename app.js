@@ -7,9 +7,13 @@ const delButton = document.getElementById("del");
 const decimal = document.getElementById(".");
 const equals = document.getElementById("=")
 
-num1 = ""
-operation = ""
-num2 = ""
+let num1 = ""
+let operation = ""
+let num2 = ""
+let results = ""
+localcount = 0;
+previousOperand = ""
+
 firstNum = true;
 
 // screen.addEventListener("click" , function(){
@@ -18,14 +22,15 @@ firstNum = true;
 // })
 
 
-acButton.addEventListener("click" , function(){
+acButton.addEventListener("click" , function (){
     console.log("AC!!!");
     num1 = ""
     operation = ""
     num2 = "" 
     firstNum = true;
     screen.innerHTML = ""
-        
+    localcount = 0;
+    previousOperand = ""
     //TODO - add relevant function
 })
 delButton.addEventListener("click" , function(){
@@ -46,13 +51,13 @@ decimal.addEventListener("click" , function(){
 })
 
 
-function showResult() {
-    screen.innerHTML = add(num1,num2)
-    console.log( "-->" +add(num1,num2));
-}
+// function showResult() {
+//     screen.innerHTML = add(num1,num2)
+//     console.log( "-->" +add(num1,num2));
+// }
 equals.addEventListener("click", function () {
     screen.innerHTML = compute(operation);
-    console.log( "result -->" +compute(operation));    
+    console.log( "result -->" +compute(operation));   
 })
 
 for (let index = 0; index < numbers.length; index++) {
@@ -64,13 +69,21 @@ for (let index = 0; index < numbers.length; index++) {
      }) 
  }
 // parseInt()
-
+// ******************************** OPERANDS ***********************************
 for (let index = 0; index < operands.length; index++) {
     const element = operands[index];
     element.addEventListener('click', function (){
         console.log("operand: " + this.innerHTML );
         updateOperand(this.innerHTML);
         firstNum = false
+        localcount++;
+        if (localcount > 1){
+            num1 =  compute(previousOperand)
+            updateScreen(num1)
+            console.log("if ran!");
+            num2 = ""
+        }
+        previousOperand = this.innerHTML;
         //TODO - add relevant function
     })
 }
@@ -120,6 +133,10 @@ function compute(op) {
     }
     
 }
+
+
+// ********************** FUNCTIONS **************************************
+
 
 function add(num1 , num2) {
     let v1 = parseInt(num1)

@@ -72,3 +72,8 @@ body{
     grid-column-start: 3;
     grid-column-end: 5;
 }
+
+.keys:hover {
+    filter: brightness(85%);
+    cursor:pointer;
+}
