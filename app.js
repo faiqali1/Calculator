@@ -4,7 +4,7 @@ const operands = document.getElementsByClassName("operand");
 const screen = document.getElementById("screen");
 const acButton = document.getElementById("ac-key");
 const delButton = document.getElementById("del");
-const decimal = document.getElementById(".");
+// const decimal = document.getElementById(".");
 const equals = document.getElementById("=")
 
 let num1 = ""
@@ -45,10 +45,10 @@ delButton.addEventListener("click" , function(){
     }
     //TODO - add relevant function
 })
-decimal.addEventListener("click" , function(){
-    console.log("tapped!");
-    //TODO - add relevant function
-})
+// decimal.addEventListener("click" , function(){
+//     console.log("tapped!");
+//     //TODO - add relevant function
+// })
 
 
 // function showResult() {

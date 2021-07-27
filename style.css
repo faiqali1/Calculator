@@ -77,3 +77,8 @@ body{
     filter: brightness(85%);
     cursor:pointer;
 }
+
+#zero{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
